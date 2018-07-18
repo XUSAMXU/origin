@@ -1,0 +1,155 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="row">
+                     	<div class="col-sm-5">
+                     		<a href="{:U('addTopic')}" class="btn btn-info">
+                     			添加新会议主题
+                     		</a>
+                     	</div>
+                        </div>
+                        <div class="space-4"></div>
+                        <div class="row">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th class="center" style="width:3%;">ID</th>
+                                        <th class="center" style="width:8%;">主题名称</th>
+                                        <th class="center" style="width:50%;">主题描述</th>
+                                        <th class="center" style="width:10%;">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <style>
+                                        .grouptd {
+                                            position: relative;
+                                        }
+                                        .group {
+                                            display: inline-block;
+                                            width: 100%;
+                                        }
+                                        .groupselect {
+                                            position: absolute;
+                                            top: 0;
+                                            left: 0;
+                                            width: 100%;
+                                            height: 100%;
+                                            border: 0;
+                                        }
+                                    </style>
+                                    <volist name="topic" id="val">
+                                        <tr>
+                       					<td class="center  align-middle">
+                       						{$val['id']}
+                       					</td>
+                       					
+                       					<td class="center  align-middle">
+                       						<a href="{:U('editTopic')}">{$val['name']}</a>
+                       					</td>	
+      
+                       					<td class="center  align-middle"> 
+                       						{$val['introduce']}
+                       					</td>
+                       		
+                       					<td class="center  align-middle">
+                       						<a href="{:U(editTopic,array('topic_id'=>$val['id']))}">编辑</a>
+                       						| <a href="{:U(delete,array('topic_id'=>$val['id']))}">删除</a>
+                       					</td>
+                                        </tr>
+                                    </volist>
+                                    </tbody>
+                                </table>
+                        </div>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(function () {
+		//全选功能
+        $(".check-all").click(function () {
+            $(".uids").prop("checked", this.checked);
+        });
+        $(".uids").click(function () {
+            var option = $(".ids");
+            option.each(function (i) {
+                if (!this.checked) {
+                    $(".check-all").prop("checked", false);
+                    return false;
+                } else {
+                    $(".check-all").prop("checked", true);
+                }
+            });
+        });
+        
+        //提交表单，点击多选的哟农户 delete
+        $("#submit").click(function () {
+            bootbox.confirm({
+                title: "系统提示",
+                message: "是否要删除所选用户？",
+                callback: function (result) {
+                    if (result) {
+                        $("#form").submit();
+                    }
+                },
+                buttons: {
+                    "cancel": {"label": "取消"},
+                    "confirm": {
+                        "label": "确定",
+                        "className": "btn-danger"
+                    }
+                }
+            });
+        });
+        
+        //单个删除
+        $(".del").click(function () {
+            var url = $(this).attr('val');
+            bootbox.confirm({
+                title: "系统提示",
+                message: "是否要删除该用户?",
+                callback: function (result) {
+                    if (result) {
+                        window.location.href = url;
+                    }
+                },
+                buttons: {
+                    "cancel": {"label": "取消"},
+                    "confirm": {
+                        "label": "确定",
+                        "className": "btn-danger"
+                    }
+                }
+            });
+        });
+    })
+</script>
+</body>
+</html>

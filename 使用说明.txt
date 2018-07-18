@@ -1,0 +1,7 @@
+后台管理 actest/admin/
+数据库链接文件 rbac.sql
+
+
+管理员帐号 admin   密码 admin
+普通账号 user 密码 user
+评审账号 expert 密码 expert

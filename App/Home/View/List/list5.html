@@ -1,0 +1,35 @@
+<include file='Common:header' />
+<link rel="stylesheet" href="__PUBLIC__/Css/list.css" />
+{:W('Cate/nav')}
+<!--主体-->
+	<div class='main'>
+		<div class='main-left'>
+			<foreach name='blog' item='v'>
+			<dl>
+				
+				<dt>{$v.name}</dt>
+				<dd class='channel'>{$v.title}</dd>
+				<dd class='info'>
+					<span class='time'>发布于：{$v.time|date='Y年m月d日 H:i:s',###}</span>
+					<span class='click'>点击：1024</span>
+				</dd>
+				<dd class='content'>{$v.summary}</dd>
+				<dd class='read'>
+					<a href="{:U('/'.$v['id'])}">阅读全文>></a>
+				</dd>
+			</dl>
+
+					
+					
+			</foreach>
+			
+		</div>
+	<!--主体右侧-->
+		
+		<div class="main-right">
+			{:W('Cate/menu')}
+		</div>
+<!--底部-->
+		<!--<include file ="Common:footer" />-->
+</body>
+</html>

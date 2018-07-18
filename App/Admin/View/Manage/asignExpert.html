@@ -1,0 +1,144 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <form class="form-horizontal" id="form" name="form" action="{:u('asignExpertHandle')}" method="post" onsubmit="return checkInput()">
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1"> 论文ID </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="id" id="title"                         class="col-xs-10 col-sm-5" value="{$paper_id} " readonly>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                                           <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1"> 论文名称 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="title" id="title" placeholder="论文名称"
+                                           class="col-xs-10 col-sm-5" value="{$title}" readonly>
+                                                       <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">正在为该论文添加评审人</span>
+											</span>
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                        分配评审人 </label>
+                                    <div class="col-sm-9">
+                                        <div class="col-sm-10">
+                                            <volist name="final" id="v">
+                                                <div class="row">
+                                                    <div class="widget-box">
+                                                        <div class="widget-header">
+                                                            <h4 class="widget-title">
+                                                                <label>
+                                                                                                                             <span class="lbl"> {$v['name']}</span>
+                                                                </label>
+                                                            </h4>
+                                                            <div class="widget-toolbar">
+                                                                <notempty name="v[child][0]">
+                                                                    <a href="#" data-action="collapse">
+                                                                        <i class="ace-icon fa fa-chevron-up"></i>
+                                                                    </a>
+                                                                </notempty>
+                                                            </div>
+                                                        </div>
+                                                        <notempty name="v[child][0]">
+                                                            <div class="widget-body">
+                                                                <div class="widget-main row">
+                                                                    <volist name="v.child" id="vv">
+                                                                        <label class="col-xs-2" style="width:160px;">
+	<noempty name="vv.name">
+   			<input name="expert[]"                                                          class="ace ace-checkbox-2 children"                                                            type="checkbox" value="{$vv['id']}_{$paper_id}"/>                                                            <span class="lbl">                                                               	{$vv['name']}                                                       </span> 
+	</noempty>                                                                                                                             </label>
+ 
+                                                                    </volist>
+                                                                </div>
+                                                            </div>
+                                                        </notempty>
+                                                    </div>
+                                                </div>
+                                            </volist>
+                                        </div>
+                                    </div>
+                                </div>
+                            </if>
+
+                            <div class="col-md-offset-2 col-md-9">
+     		<input type="submit" class="btn btn-info submit" value="提交"/>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                        </form>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<script src="__PUBLIC__/Admin/js/bootbox.js"></script>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(".children").click(function () {
+        $(this).parent().parent().parent().parent().find(".father").prop("checked", true);
+    })
+    $(".father").click(function () {
+        if (this.checked) {
+            $(this).parent().parent().parent().parent().find(".children").prop("checked", true);
+        } else {
+            $(this).parent().parent().parent().parent().find(".children").prop("checked", false);
+        }
+    })
+    	
+    function checkInput(){
+
+		$length =$('input[name^=expert]:checked').length;
+		if( $length>3){
+		    bootbox.dialog({
+            message: "评审人数不能超过3个。",
+            buttons: {
+                "success": {
+                    "label": "确定",
+                    "className": "btn-danger"
+                }
+            }	
+            });
+		 return false;	
+		}
+    }
+
+    
+</script>
+</body>
+</html>

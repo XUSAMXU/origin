@@ -1,0 +1,111 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+             
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                	<div class="alert alert-block alert-success">
+            <button type="button" class="close" data-dismiss="alert">
+                <i class="ace-icon fa fa-times"></i>
+            </button>
+            <!--i class="ace-icon fa fa-check green"></i-->
+        节点列表 ，可以添加删除，请谨慎操作      </div>
+                    <div class="col-xs-12">
+                
+                        <!-- PAGE CONTENT BEGINS -->
+                
+                            <div class="space-4"></div>
+                         
+                                <div class="form-group">
+   	
+                                    <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                         </label>
+                                    <div class="col-sm-9">
+                        <div class="col-sm-10">	<a href="{:U('Rbac/addNode')}" class="add-app btn btn-info block">添加应用</a> </div>            	                             	    
+                                    <volist name="node" id="app">
+                                    <div class="col-sm-10">
+                                  
+                                    	<div class="space-4"></div>
+                                     		<div class="row">   	
+                                     			<label class="col-xs-4">
+                                                                    <span class="lbl" style="
+    font-size:16px;
+    font-weight:  bold;
+    color: #438eb9;
+    line-height: 30px;
+"> {$app['title']}</span>
+                                            	</label>	
+                                            	<a href="{:U('Rbac/addNode',array('pid'=> $app['id'] ,'level'=>2))}" class="add-action btn btn-default btn-success btn-xs" >添加控制器</a>
+                                     		</div><!--level~~1-->
+                                     		
+                                        <volist name="app.child" id="action">
+                                            <div class="row">   
+                                                    <div class="widget-box">
+                                                        <div class="widget-header">
+                                                            <h4 class="widget-title">
+                                                               <label>
+                                                                                                                                                       <strong class="lbl "> {$action['title']}</strong>
+				 			<a href="{:U('rbac/addNode',array('node_id'=>$action['id'],'pid'=> $app['id'] ,'level'=>2))}">修改</a>|<a href="{:U('Rbac/addNode',array('pid'=> $action['id'] ,'level'=>3))}" class="add-method">添加方法</a>                                                                     </label>      
+                                                                
+                                                            </h4>
+                                                            <div class="widget-toolbar">
+                                                                <notempty name="action.child">
+                                                                    <a href="#" data-action="collapse">
+                                                                        <i class="ace-icon fa fa-chevron-up"></i>
+                                                                    </a>
+                                                                </notempty>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <notempty name="action.child">
+                                                            <div class="widget-body">
+                                                                <div class="widget-main row">                                                    
+																		<volist name="action.child" id="method">
+                                                                            <label class="col-xs-4">                                                    <span class="lbl"> {$method['title']} </span>
+                 [<a href="{:U('rbac/addNode',array('node_id'=>$method['id'],'pid'=> $action['id'] ,'level'=>3))}">修改</a>]
+				 [<a href="{:U('rbac/deleteNode',array('node_id'=>$method['id']))}">删除</a>]
+                                                                           </label>
+                                                                        </volist> 
+		                                                            </div>
+		                                                        </div>
+		                                                </notempty>
+		                                        	</div>
+		                                        </div>
+		                                    </volist>
+		                                 
+									</div>
+									</volist>  
+                                </div>
+							</div>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<script src="__PUBLIC__/Admin/js/bootbox.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,369 @@
+    <!-- #section:basics/sidebar -->
+    <div id="sidebar" class="sidebar responsive">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                <button class="btn btn-success">
+                    <i class="ace-icon fa fa-signal"></i>
+                </button>
+
+                <button class="btn btn-info">
+                    <i class="ace-icon fa fa-pencil"></i>
+                </button>
+
+                <!-- #section:basics/sidebar.layout.shortcuts -->
+                <button class="btn btn-warning">
+                    <i class="ace-icon fa fa-users"></i>
+                </button>
+
+                <button class="btn btn-danger">
+                    <i class="ace-icon fa fa-cogs"></i>
+                </button>
+
+                <!-- /section:basics/sidebar.layout.shortcuts -->
+            </div>
+
+            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                <span class="btn btn-success"></span>
+
+                <span class="btn btn-info"></span>
+
+                <span class="btn btn-warning"></span>
+
+                <span class="btn btn-danger"></span>
+            </div>
+        </div><!-- /.sidebar-shortcuts -->
+
+        <ul class="nav nav-list">
+            <li class="active">
+                <a href="{:U(MODULE_NAME.'/index/index')}">
+                <i class="menu-icon fa fa-tachometer"></i>
+                <span class="menu-text">
+                     	控制台                     	                          
+                </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
+            
+            <li>
+                <a href="#&#10;" class="dropdown-toggle">
+                <i class="menu-icon fa fa-cog"></i>
+                <span class="menu-text">
+                                                  系统设置                                
+                </span>
+                <b class="arrow fa fa-angle-down"></b>                
+                </a>
+                <b class="arrow"></b>
+                	<ul class="submenu">
+                        <li>
+                            <a href="{:U('Setting/topic')}">
+                            <i class=""></i>
+                             	会议主题  
+                            </a>
+                            <b class="arrow"></b>                         
+                  	 	</li> 
+                  	 	<li>
+                            <a href="{:U('Setting/registPeople')}">
+                            <i class=""></i>
+                             	会议申请  
+                            </a>
+                            <b class="arrow"></b>                         
+                  	 	</li>
+                  	 	<li>
+                            <a href="{:U('Setting/topic')}">
+                            <i class=""></i>
+                             	系统设置  
+                            </a>
+                            <b class="arrow"></b>                         
+                  	 	</li>
+                	</ul>                
+            </li>
+       
+            <li>
+                <a href="#&#10;" class="dropdown-toggle">
+                <i class="menu-icon fa fa-users"></i>
+                <span class="menu-text">
+					用户及组                              
+                </span>
+                <b class="arrow fa fa-angle-down"></b>                
+                </a>
+                <b class="arrow"></b>
+                <ul class="submenu">
+                        <li>
+                            <a href="{:U('Rbac/index','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		用户列表                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>
+                        <li>
+                            <a href="{:U('Rbac/role','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+								角色列表                                                  
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>
+                        <li>
+                            <a href="{:U('Rbac/node','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+								节点列表                                                        
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>
+                        <li>
+                            <a href="{:U('Rbac/addUser','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+								添加用户                    
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>                    
+                </ul>                
+            </li>
+            
+            <li>
+                <a href="###" class="dropdown-toggle">
+                <i class="menu-icon fa fa-desktop"></i>
+                <span class="menu-text">
+					网站内容                                
+                </span>
+                <b class="arrow fa fa-angle-down"></b>                
+                </a>
+
+                <b class="arrow"></b>
+                 
+                    <ul class="submenu">
+                     	<li>
+                            <a href="{:U(MODULE_NAME.'/Content/addContent','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		添加文章                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                       </li> 
+                        <li>
+                            <a href="{:U(MODULE_NAME.'/Content/content','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		文章管理                                                         
+                            </a
+                            <b class="arrow"></b>                     
+                        </li>
+                           <li>
+                            <a href="{:U(MODULE_NAME.'/content/trach','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		文章回收站                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>
+                        <li>
+                            <a href="{:U(MODULE_NAME.'/Category/addCate','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		网站分类                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>         
+                        <li>
+                            <a href="{:U(MODULE_NAME.'/Category/cate','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		分类列表                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>          
+                	</ul> 
+            </li>
+            
+            <li>
+                <a href="###" class="dropdown-toggle">
+                <i class="menu-icon fa fa-star"></i>
+                <span class="menu-text">
+					普通用户                                
+                </span>
+                <b class="arrow fa fa-angle-down"></b>                
+                </a>
+
+                <b class="arrow"></b>
+					<ul class="submenu">
+                        <li>
+                            <a href="{:U(MODULE_NAME.'/Paper/addPaper','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		提交论文                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>
+						<li>
+                            <a href="{:U(MODULE_NAME.'/Paper/paper','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		管理论文                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                       </li> 
+                        <li>
+                            <a href="{:U(MODULE_NAME.'/Paper/join','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		参会注册                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li> 
+                                 <li>
+                            <a href="{:U(MODULE_NAME.'/Paper/joinList','','')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		参会管理                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li> 
+                	</ul>     
+            </li>
+                        
+            <li>
+                <a href="###" class="dropdown-toggle">
+                <i class="menu-icon fa fa-file-word-o"></i>
+                <span class="menu-text">
+					审稿管理                                
+                </span>
+                <b class="arrow fa fa-angle-down"></b>                
+                </a>
+
+                <b class="arrow"></b>
+					<ul class="submenu">
+                        <li>
+                            <a href="{:U('manage/paperlist')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		论文管理                                                         
+                            </a>
+                            <b class="arrow"></b>                      
+                        </li>    
+                        <li>
+                            <a href="{:U('manage/endProject')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		审稿结果                                                         
+                            </a>
+                            <b class="arrow"></b>                      
+                        </li> 
+                        <li>
+                            <a href="{:U('manage/paperExcel')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		 导出表格                                                      
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li> 
+                        <li>
+                            <a href="{:U('manage/expertProject')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		  评审条目                                                      
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>
+                	</ul>                
+            </li> 
+            <li>
+                <a href="###" class="dropdown-toggle">
+                <i class="menu-icon fa fa-star"></i>
+                <span class="menu-text">
+					评审专家                              
+                </span>
+                <b class="arrow fa fa-angle-down"></b>                
+                </a>
+
+                <b class="arrow"></b>
+					<ul class="submenu">
+                        <li>
+                            <a href="{:U('expert/checkPaper')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		审稿论文                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li> 
+                        <li>
+                            <a href="{:U('expert/expertInfo')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		评审专家信息                                                      
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li> 
+                	</ul>                
+            </li>
+            <li>
+                <a href="###" class="dropdown-toggle">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text">
+					个人中心                                
+                </span>
+                <b class="arrow fa fa-angle-down"></b>                
+                </a>
+
+                <b class="arrow"></b>
+					<ul class="submenu">
+                        <li>
+                            <a href="{:U('Index/userInfo')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		个人资料                                                         
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li> 
+                        <li>
+                            <a href="{:U('index/logout')}">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                           		  退出                                                      
+                            </a>
+
+                            <b class="arrow"></b>
+                                                        
+                        </li>
+                	</ul>                
+            </li> 
+        </ul><!-- /.nav-list -->
+
+        <!-- #section:basics/sidebar.layout.minimize -->
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left"
+               data-icon2="ace-icon fa fa-angle-double-right"></i>
+        </div>
+
+        <!-- /section:basics/sidebar.layout.minimize -->
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'collapsed')
+            } catch (e) {
+            }
+        </script>
+    </div>
+
+    <!-- /section:basics/sidebar -->

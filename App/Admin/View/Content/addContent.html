@@ -1,0 +1,145 @@
+<include file="Public/head"/>
+<body class="no-skin">
+	<script type="text/javascript">
+			window.UEDITOR_HOME_URL  ='__ROOT__/Data/Ueditor/';
+			window.onload =function() {
+//				window.UEDITOR_HOME_URL  ='__ROOT__/Data/Ueditor/';
+//				window.UEDITOR_CONFIG.initialFrameWidth = 1200;
+//				window.UEDITOR_CONFIG.initialFrameHeight = 400;
+//				
+//				console.log(window.UEDITOR_CONFIG.imageUrl);
+//window.UEDITOR_CONFIG.imageUrl ="{:U(MODULE_NAME.'/Blog/upload','','')}";
+//window.UEDITOR_CONFIG.imagePath ="__ROOT__/Uploads/";
+//				//window.UEDITOR_CONFIG.imagePath;
+			var ue =UE.getEditor('content');
+			}
+
+		</script>
+		<script src="__ROOT__/Data/Ueditor/ueditor.config.js"></script>
+		<script src="__ROOT__/Data/Ueditor/ueditor.all.min.js"></script>
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <form class="form-horizontal" action="{:U(MODULE_NAME.'/Content/addContentHandle','','')}" method="post">
+                            <div class="form-group">
+                             <div class="space-4"></div>
+                            <h3 class="col-sm-12 col-sm-offset-20">添加文章</h3>
+                            	 <div class="space-16"></div>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 文章标题 </label>
+                                <div class="col-sm-7">
+                                    <input type="text"
+ class="rcol-xs-10 col-sm-5" value="" name="title"/>
+                                   
+                                    <span class="help-inline col-xs-12 col-sm-7">
+<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                                    <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 文章分类 </label>
+                                <div class="col-sm-7">
+                                  <select name="cid" id=""  class="col-xs-10 col-sm-5">
+                                  	<foreach name='cate' item="val">
+                                  		<option value="{$val['id']}">{$val.name}</option>
+                                  	</foreach>
+                                  </select>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+        <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 文章属性 </label>
+                                <div class="col-sm-7">
+                                    <input type="text" name="attr" id="phone" placeholder=""
+                                           class="col-xs-10 col-sm-5" value="">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6">摘要 </label>
+                                <div class="col-sm-7">
+                            <textarea name="summary" rows="4" class="col-xs-10 col-sm-5">
+                            	
+                            </textarea>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6">内容 </label>
+                                <div class="col-sm-7 no-padding">
+                            <textarea name="content" id="content" rows="4" class="col-xs-12">
+                            	
+                            </textarea>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+
+                            <div class="col-md-offset-4 col-md-9">
+                                <button class="btn btn-info width-20" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                             
+                            </div>
+                        </form>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script src="__PUBLIC__/Admin/js/date-time/bootstrap-datepicker.js"></script>
+<!--<script src="__PUBLIC__/Admin/js/function.js"></script>-->
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('#birthday').datepicker({
+            format: 'yyyy-mm-dd',
+            weekStart: 1,
+            autoclose: true,
+            todayBtn: 'linked',
+            language: 'cn'
+        });
+    });
+</script>
+</body>
+</html>

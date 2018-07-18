@@ -1,0 +1,26 @@
+	<header>
+        <div class="navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+				学术会议平台
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    
+                    <ul class="nav navbar-nav">
+                    	<li class="active">
+                    		<a href="__MODULE__">首页</a>
+                    	</li>
+                    	
+                    	<foreach name="navTop" item="v">
+                    		<li>
+                    			<a href="{:U('/c_'.$v['id'])}">{$v['name']}</a>
+                    		</li>
+                    	</foreach>
+                    	
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</header>

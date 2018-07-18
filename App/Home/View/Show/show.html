@@ -1,0 +1,54 @@
+<!--include head -->
+<include file="Public/head"/>
+<!--include head -->
+<body>
+<div id="wrapper">
+	<!--include header -->
+{:W('Cate/nav')}
+	<!--include header -->
+
+	
+<include file="Public/insite"/> 
+	
+	<section id="content">
+	
+	<div class="container">
+		<style type="text/css">
+			.main{
+				width: auto;
+				width: 100%;
+			}
+		</style>
+	     <div class="row">
+					
+			<div class="left col-sm-12 col-md-7">
+			<div class="main">
+				<div class="main-left" style="float: none;width:auto;">
+			<div class="title" style="padding: 10px;position: relative;width: 100%;">
+				<p>{$show['title']}</p>
+
+				<span style="position: absolute;right: 0;top: 10px;">发布于：{$show['time'] | date='Y-m-s',###}</span>
+			</div>
+			<div class='content' style="min-height: 500px;">
+				{$show['content']}
+			</div>
+			</div></div>
+			</div>
+							{:W("Cate/menu")}
+
+		</div><!-- row end -->
+							
+	</div>
+	
+	  <div class="row">
+	  		
+	  </div>
+	</div>
+	
+	</section>
+	
+	
+	
+		<!--end of footer-->
+<include file="Public/footer"/>
+		<!--end of footer-->

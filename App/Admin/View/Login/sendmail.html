@@ -1,0 +1,148 @@
+<include file="Public/head"/>
+<body class="login-layout light-login">
+<div class="main-container login-main-container">
+    <div class="main-content">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="login-container">
+                    <div class="space-6"></div>
+
+                    <div class="position-relative">
+                        <div id="login-box" class="login-box visible widget-box no-border">
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <h4 class="header blue lighter bigger">
+                                        <i class="ace-icon fa fa-coffee green"></i>
+                                        <b>找回账号密码</b>
+                                    </h4>
+
+                                    <div class="space-6"></div>
+
+                                    <form action="{:U('Login/getMailHandle')}" method="post">
+                                        <fieldset>
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="email form-control" name="email"
+                                                                   placeholder="邮箱" />
+		<p class="tips"></p>
+				<a href="#" onclick="send()">发送验证码</a>									<i class="ace-icon fa fa-user"></i>
+														</span>
+                                            </label>
+
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" name="password"
+                                                                   placeholder="新密码密码"/>
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+                                            </label>
+                                           <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" name="code"
+                                                                   placeholder="验证码"/>
+<i class="ace-icon fa fa-user"></i>
+														</span>
+                                            </label>
+                                            <div class="space"></div>
+                                         
+
+      <div class="clearfix">                                          <button type="submit"
+                                                        class="width-35 pull-left btn btn-sm btn-primary">
+                                                    <i class="ace-icon fa fa-key"></i>
+
+                                           </button>      
+</div>
+<div class="bottom">                                        
+<span
+	style="margin-top: 10px;font-size:16px;"> 
+   <a href="{:U('register/index')}">
+   	普通用户注册
+   </a>                                                                                    </span>
+or                                      
+<span
+	style="margin-top: 10px;font-size:16px;"> 
+   <a href="{:U('register/expertIndex')}">
+   	评审人注册
+   </a>                                                                                    </span>
+</div>
+
+<div class="space-4"></div>	
+                                 </fieldset>
+                                        <div>
+                                        		
+                                        </div>
+                                    </form>
+                                </div><!-- /.widget-main -->
+                            </div><!-- /.widget-body -->
+                        </div><!-- /.login-box -->
+                    </div><!-- /.position-relative -->
+
+                    <div class="navbar-fixed-top align-right">
+                        <br/>
+                        &nbsp;
+                        <a id="btn-login-dark" href="#">Dark</a>
+                        &nbsp;
+                        <span class="blue">/</span>
+                        &nbsp;
+                        <a id="btn-login-blur" href="#">Blur</a>
+                        &nbsp;
+                        <span class="blue">/</span>
+                        &nbsp;
+                        <a id="btn-login-light" href="#">Light</a>
+                        &nbsp; &nbsp; &nbsp;
+                    </div>
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.main-content -->
+</div><!-- /.main-container -->
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='__PUBLIC__/Admin/js/jquery.js'>" + "<" + "/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='__PUBLIC__/Admin/js/jquery1x.js'>" + "<" + "/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='__PUBLIC__/Admin/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+</script>
+
+
+<script type="text/javascript">
+		function send(){
+			var reg =new RegExp('^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$');
+			var email = $('.email').val();
+			var result = reg.test(email);
+			if(!result){
+				$('.tips').text('邮箱格式不正确，请重新输入');
+				return
+			}
+			
+			$.ajax({
+				type:"get",
+				url:"{:U('Login/sendmailHandle')}",
+				async:true,
+				contentType:'application/json',
+				dataType:"json",
+				data:{"email":email},
+				success:function(data){
+					console.log('发送成功')
+					$('.tips').text(data);
+					console.log(data);
+				},
+				error:function(data){
+					$('.tips').text(data);
+				}
+			})
+		}
+</script>
+</body>
+</html>

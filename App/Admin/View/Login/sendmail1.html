@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<script type="text/javascript" src="__PUBLIC__/Admin/js/jquery.js"></script>
+	</head>
+	<body>
+		<form action="{:U('Login/getMailHandle')}" method="post">
+		
+			<p><strong>输入您注册的电子邮箱，获取验证码：</strong></p> 
+			
+			<p>
+			邮&nbsp;&nbsp;&nbsp;&nbsp;箱：
+				<input type="email" class="email input" name="email"><span id="chkmsg"></span> 
+				<a href="#" onclick="send()">发送验证码</a>
+			</p> 
+			<p class="tips"></p>
+
+			<p>
+				新密码：
+				<input type="text" class="password input" name="password"><span id="chkmsg"></span>
+			</p>
+			<p>
+				验证码：
+				<input type="text" class="code input" name="code"><span id="chkmsg"></span>
+			</p> 
+			<p><input type="submit" class="btn" id="sub_btn" value="提 交"></p> 
+		
+		</form>
+<script type="text/javascript">
+		function send(){
+			var reg =new RegExp('^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$');
+			var email = $('.email').val();
+			var result = reg.test(email);
+			
+			if(!result){
+				$('.tips').text('邮箱格式不正确，请重新输入');
+				return
+			}
+			
+			$.ajax({
+				type:"get",
+				url:"{:U('Login/sendmailHandle')}",
+				async:true,
+				contentType:'application/json',
+				dataType:"json",
+				data:{"email":email},
+				success:function(data){
+					console.log('发送成功')
+					$('.tips').text(data);
+					console.log(data);
+				},
+				error:function(data){
+					$('.tips').text(data);
+				}
+			})
+		}
+</script>
+	</body>
+</html>

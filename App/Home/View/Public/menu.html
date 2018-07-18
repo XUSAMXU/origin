@@ -1,0 +1,34 @@
+	<div class="col-xs-12 col-sm-12 col-md-5">
+                    <div class="latest-post-wrap pull"> 
+						<h3><span>会议通知</span></h3>
+                        <!--Notic-->
+						<div>
+							<ul  class="list-group">
+							<foreach name='content' item='v'>
+							<li class="list-group-item active">
+								<a href="{:U('/'.$v['id'])}">{$v.title}</a>
+								<span class="pull-right">({$v.time|date='Y-m-d',###})</span>
+							</li>
+							</foreach>
+							</ul>
+						</div>
+		
+                  
+                        </div>
+                        					<!--login && register-->
+								<div class="col-sm-12 col-xs-12 loginandregister">
+									<span class="help-block">
+									登录后可以提交论文,参会注册
+									</span>
+									<div class="login col-sm-6">
+										<a href="{:U('admin/login')}" class="btn btn-sm">
+											登录
+										</a>
+									</div>
+									
+									<div class="register col-sm-6">
+										<a href="" class="btn btn-sm">
+											注册</a>
+									</div>
+								</div><!--login end-->
+		</div>

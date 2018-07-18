@@ -1,0 +1,130 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                         <div class="space-10"></div>
+                       	<div>
+                       		<h3>上传信息区域</h3>
+                       	</div>
+                       	
+                        <div class="space-10"></div>
+           				        
+                        
+                        <form id="export-form" method="post" action="{:U(MODULE_NAME.'/Upload/uploadPaperHandle')}" method="post" enctype="multipart/form-data">
+                        	     
+                        <div>论文编号：{$file['paper_id']} <input type="hidden" name="paper_id" id="paper_id" value="{$file['paper_id']}" /></div>
+                        <div>论文标题：{$file['title']} <input type="hidden" name="title" 
+                        	value="{$file['title']}"/></div>
+                        	
+                        		<div class="space-4"></div>
+                        	
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>文件名</th>
+                                    <th>上传区域</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                      			<tr>
+					<td>
+						<h4 style="font-size:18px;text-align: left;">
+						初稿
+						</h4>
+					</td>
+					<td>
+						
+							已上传文件名：<span class="blue">{$file['firstlink']}</span>
+						<div class="space-4"></div>
+								
+							<input type="file" name="firstlink"/>
+					
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4 style="font-size:18px;text-align: left;">
+						终稿
+						</h4>
+					</td>
+					<td>
+						
+							已上传文件名:<span class="blue">{$file['finalpaper']}</span>
+						<div class="space-4"></div>
+								
+							<input type="file" name="finalpaper"/>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4 style="font-size:18px;text-align: left;">
+						IEEE 版权信息表
+						</h4>
+					</td>
+					<td>
+
+						已上传文件名 :<span class="blue">{$file['right']}</span>
+						
+						<div class="space-4"></div>
+						
+						<input type="file" name="right"/>
+
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4 style="font-size:18px;text-align: left;">
+						保密审查表
+						</h4>
+					</td>
+					<td>
+
+				已上传文件名:<span class="blue">{$file['secret']}</span>
+						<div class="space-4"></div>
+							
+<input type="file" name="secret"/>
+
+					</td>
+				</tr>	
+                                </tbody>
+                            </table>
+                            <div class="cf">
+                                <input class="btn btn-info" type="submit" value="提交信息">
+                            </div>
+                        </form>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+
+</body>
+</html>

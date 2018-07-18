@@ -1,0 +1,67 @@
+<!--include head -->
+<include file="Public/head"/>
+<!--include head -->
+
+<body>
+<div id="wrapper">
+	
+	<!--include header -->
+{:W('Cate/nav')}
+	<!--include header -->
+
+	
+<include file="Public/insite"/> 
+	
+		<section id="content">
+	
+	<div class="container">
+		
+	     <div class="row">
+					
+			<div class="left col-sm-12 col-md-7">
+				<div class="list-group">
+							<foreach name="blog" item='v'>
+							<div class="list-group-item">
+									<div class="head">{$v['name']}</div>
+									<div class="title"><h4><a href="{:U('/'.$v['id'])}">{$v['title']}</a></h4></div>
+									<div class="content">
+										{$v['summary']}
+									</div>
+				<!--<div class="bottom">
+					<a href="javascript(0)" class="btn btn-xs btn-padding">
+											不征文
+										</a>	
+										
+										<a href="javascript(0)" class="btn btn-xs btn-padding">
+											不注册
+										</a>
+										<a href="javascript(0)" class="btn btn-xs btn-padding">
+											参会人数：100
+										</a>
+				</div>-->
+									<div class="space-4"></div>
+
+															
+								</div>	
+						</foreach>
+				</div>
+			
+			</div>
+							{:W("Cate/menu")}
+
+		</div><!-- row end -->
+							
+						</div>
+	
+	  <div class="row">
+	  		
+	  </div>
+	</div>
+	
+	</section>
+	
+	
+	
+		<!--end of footer-->
+<include file="Public/footer"/>
+		<!--end of footer-->

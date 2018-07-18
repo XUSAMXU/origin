@@ -1,0 +1,157 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <form class="form-horizontal" action="{:U('paper/joinHandle')}" method="post">
+                            <div class="form-group">
+                             <div class="space-4"></div>
+                           <div class="row">
+                           	 <div class="col-sm-4"></div>
+                           	 <h3 class="col-sm-7 ">参会注册</h3>
+                           </div>
+                           
+                             </div>
+                             
+                            	 <div class="space-16"></div>
+            
+                     
+                                             <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-10">论文选择</label>
+                                <div class="col-sm-7">
+
+                           	             <select id="paper_id" name="paper_id" class="col-xs-7" onchange="getAuthor()">
+                                            <volist name="paper" id="val">
+                                                <option value="{$val['id']}" <if condition="$paper_id==$val['paper_id']" > checked="checked"</if>>{$val['title']} </option>
+                                            </volist>
+                                        </select>
+
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">选择完论文会自动加载联系人作者信息</span>
+											</span>
+                                </div>
+                            </div>
+                            
+                                       <div class="form-group">
+                       	         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 作者ID </label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="authorId col-xs-7" value="" name="author_id" readonly/>
+                                   
+                                    <span class="help-inline col-xs-12 col-sm-7">
+<span class="middle">无法修改</span>
+											</span>
+                                </div>
+                            </div>
+                                            <div class="form-group">
+                       	         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 联系作者姓名 </label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="authorName col-xs-7" value="" name="name" readonly/>
+                                   
+                                    <span class="help-inline col-xs-12 col-sm-7">
+<span class="middle">无法修改</span>
+											</span>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="form-group" id="authorInfo" style="text-align: center;"> 
+                            	
+                            </div>
+                            
+                     
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-10"> 留言 </label>
+                                <div class="col-sm-7">
+                              <textarea name="message" id="" rows="6" class="col-xs-10 col-sm-10form-controll"></textarea>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">这里填写备注信息，将需要的内容进行补充,如参会人数，参数论文，参会注册信息等。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="space-4"></div>
+
+                            <div class="col-md-offset-4 col-md-9">
+                                <button class="btn btn-info width-20" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交注册信息
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                             
+                            </div>
+                        </form>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script src="__PUBLIC__/Admin/js/date-time/bootstrap-datepicker.js"></script>
+<!--<script src="__PUBLIC__/Admin/js/function.js"></script>-->
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('#birthday').datepicker({
+            format: 'yyyy-mm-dd',
+            weekStart: 1,
+            autoclose: true,
+            todayBtn: 'linked',
+            language: 'cn'
+        });
+    });
+    function getAuthor(){
+    	
+    	var paper_id = $("#paper_id option:selected").val();
+    	
+    		$.ajax({
+				type:"get",
+				url:"{:U('paper/joinAjax')}",
+				async:true,
+				contentType:'application/json',
+				dataType:"json",
+				data:{"paper_id":paper_id},
+				success:function(data){
+					console.log(data);
+					$('.authorName').val(data['name']);
+					$('.authorId').val(data['id']);
+				},
+				error:function(data){
+					$('#authorInfo').text('目前没有文章可以选择');
+				}
+			})
+    }
+    getAuthor();
+   
+</script>
+</body>
+</html>

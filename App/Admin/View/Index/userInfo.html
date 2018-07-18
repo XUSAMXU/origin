@@ -1,0 +1,166 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <form class="form-horizontal" action="{:U('rbac/addUserHandle')}" method="post">
+                            <div class="form-group">
+                             <div class="space-4"></div>
+                            <h3 class="col-sm-12 col-sm-offset-20">添加角色</h3>
+                            	 <div class="space-16"></div>
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 用户名 </label>
+                                <div class="col-sm-7">
+                                    <input type="text" readonly name="username"
+class="rcol-xs-10 col-sm-5" value="{$user['username']}" />
+                                   
+                                    <span class="help-inline col-xs-12 col-sm-7">
+											<span class="middle">无法修改</span>
+									</span>
+                                </div>
+                            </div>
+                                    <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 密码 </label>
+                                <div class="col-sm-7">
+                                    <input type="text" name="password" id="password" placeholder=""
+                                           class="col-xs-10 col-sm-5" value="">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">密码留空则不修改</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+        <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 姓名 </label>
+                                <div class="col-sm-7">
+                                    <input type="text" name="name" id="name" placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$user['name']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-4"> 性别 </label>
+                                <div class="col-sm-7">
+                                    <select id="sex" name="sex" class="multiselect">
+                                        <option value="3"
+                                        <if condition="$user['sex'] eq 0">selected="selected"</if>
+                                        >保密</option>
+                                        <option value="1"
+                                        <if condition="$user['sex'] eq 1">selected="selected"</if>
+                                        >男</option>
+                                        <option value="2"
+                                        <if condition="$user['sex'] eq 2">selected="selected"</if>
+                                        >女</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="id-date-picker-1">生日</label>
+                                <div class="col-xs-7 col-sm-9">
+                                    <div class="input-group col-xs-5">
+
+                                        <input class="form-control" id="birthday" name="birthday" value="<if condition="
+                                               $user['birthday'] neq '' ">{$user['birthday']|date="Y-m-d",###}</if>"
+                                        type="text" data-date-format="dd-mm-yyyy" />
+                                        <span class="input-group-addon">
+													<i class="ace-icon fa fa-calendar bigger-110"></i>
+												</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 手机号码 </label>
+                                <div class="col-sm-7">
+                                    <input type="text" name="phone" id="phone" placeholder="手机号码"
+                                           class="col-xs-10 col-sm-5" value="{$user['phone']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-8">
+                                    E-mail </label>
+                                <div class="col-sm-7">
+                                    <input type="email" name="email" id="email" placeholder="E-mail"
+                                           class="col-xs-10 col-sm-5" value="{$user['email']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="col-md-offset-4 col-md-9">
+                                <button class="btn btn-info width-20" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                             
+                            </div>
+                        </form>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script src="__PUBLIC__/Admin/js/date-time/bootstrap-datepicker.js"></script>
+<!--<script src="__PUBLIC__/Admin/js/function.js"></script>-->
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('#birthday').datepicker({
+            format: 'yyyy-mm-dd',
+            weekStart: 1,
+            autoclose: true,
+            todayBtn: 'linked',
+            language: 'cn'
+        });
+    });
+</script>
+</body>
+</html>

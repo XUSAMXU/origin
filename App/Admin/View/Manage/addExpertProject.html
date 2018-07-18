@@ -1,0 +1,107 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <h3 class="title">添加评审项目</h3>
+                        <form class="form-horizontal" action="{:U(MODULE_NAME.'/Manage/addExpertProjectHandle','','')}" method="post">
+            				<div class="space-10"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 评审项目标题： </label>
+                                <div class="col-sm-7">
+                                    <input type="text" name="title" placeholder="" value=""
+                                           class="col-xs-10 col-sm-5">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                 
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 评审项目模块名称： </label>
+                                <div class="col-sm-7">
+                                               <input type="text" name="name" placeholder=""
+                                           class="col-xs-10 col-sm-5">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                            
+                             <div class="space-4"></div>
+                            
+                               <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-10">评审区域类型： </label>
+                                <div class="col-sm-7">
+                                        <select id="type" name="type" class="rcol-xs-10 col-sm-5">
+
+                                                <option value="1">radio</option>
+                                                <option value="1">text</option>
+                                                <option value="1">textrea</option>
+                                       
+                                        </select>
+
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">选择项目输出类型</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+             
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 可选项或者默认值： </label>
+                                <div class="col-sm-7">
+                                               <input type="text" name="default" placeholder=""
+                                           class="col-xs-10 col-sm-5">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"> 例如：优秀/中等/一般/较差 </span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            <div class="col-md-offset-4 col-md-9">
+                                <button class="btn btn-info width-20" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                             
+                            </div>
+                        </form>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+</body>
+</html>

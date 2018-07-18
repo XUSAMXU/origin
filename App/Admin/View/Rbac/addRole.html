@@ -1,0 +1,99 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+	<style type="text/css">
+		.col-center-block {  
+		    float: none;  
+		    display: block;  
+		    margin-left: auto;  
+		    margin-right: auto;  
+		} 
+		.text-right 
+	</style>
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                         <div class="space-20"></div>
+                        <form class="form-horizontal" action="{:U(MODULE_NAME.'/Rbac/addRoleHandle','','')}"  method="post" method="post">
+                            <div class="form-group ">
+                               <div class="col-sm-5 text-right no-padding-right align-middle">
+                               	 <label class="" for="form-field-10">角色名称： </label>
+                               </div>
+                                <div class="col-sm-5">
+                              <input type="text" name="name"  value="" />
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group align-middle">
+                              <div class="col-sm-5 text-right no-padding-right align-middle">
+                               	 <label class="align-middle" for="form-field-10">角色描述： </label>
+                               </div>
+                                <div class="col-sm-5">
+                        
+                        <input type="text" name='remark'/>	
+               
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                    <div class="col-sm-5 text-right no-padding-right align-middle">
+                               	 <label class="align-middle" for="form-field-10">是否开启： </label>
+                               </div>
+                                <div class="col-sm-5">
+
+<input name="status" id="status" class="ace ace-switch ace-switch-2" type="checkbox">
+<span class="lbl"></span>
+<span class="">YES，启用；NO，禁用</span>
+                                </div>
+                         <span class="help-inline col-xs-5 col-sm-7 col-sm-offset-20 text-right">
+												
+										</span>
+                            </div>
+
+                            <div class="space-4"></div>
+
+
+                            <div class="col-md-12 center">
+                                <button class="btn  btn-info width-20" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                             
+                            </div>
+                        </form>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+</body>
+</html>

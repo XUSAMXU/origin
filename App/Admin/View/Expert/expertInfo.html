@@ -1,0 +1,94 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <h3 class="title">评审专家个人信息</h3>
+                        <form class="form-horizontal" action="{:U(MODULE_NAME.'/Expert/expertInfoHandle',array('expert_id'=>$expert['id']),'')}" method="post">
+            				<div class="space-10"></div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 姓名 </label>
+                                <div class="col-sm-7">
+                                    <input type="text" name="name" placeholder="" value="{$expert['name']}"
+                                           class="col-xs-10 col-sm-5">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                 
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 所属机构 </label>
+                                <div class="col-sm-7">
+                                               <input type="text" name="organization" placeholder="" value="{$expert['organization']}"
+                                           class="col-xs-10 col-sm-5">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"></span>
+											</span>
+                                </div>
+                            </div>
+                            
+                             <div class="space-4"></div>
+                            
+                               <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right" for="form-field-10">所属领域 </label>
+                                <div class="col-sm-7">
+                                        <select id="topic_id" name="topic_id" class="rcol-xs-10 col-sm-5">
+                                            <volist name="topic" id="val">
+                                                <option value="{$val['id']}" <if condition="$val['id'] == $expert['topic_id']"> selected="selected"</if> >{$val['name']}</option>
+                                            </volist>
+                                        </select>
+
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">可以选择方向</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+
+                            <div class="col-md-offset-4 col-md-9">
+                                <button class="btn btn-info width-20" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                             
+                            </div>
+                        </form>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+</body>
+</html>
